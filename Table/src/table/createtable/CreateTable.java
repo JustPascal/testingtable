@@ -29,7 +29,7 @@ public class CreateTable {
 			for (int z = 0; z < columnLength; z++)
 				donnees[i][z] = null;
 
-		String[] entetes = new String[10];
+		String[] entetes = new String[headerLength];
 		for (int i = 0; i < headerLength; i++)
 			entetes[i] = "";
 
