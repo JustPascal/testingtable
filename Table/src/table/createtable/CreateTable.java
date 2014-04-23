@@ -40,7 +40,6 @@ public class CreateTable {
 
 	public void showTable() {
 		// affiche le tableau
-		// Money Money
 		mainFrame.pack();
 	}
 
