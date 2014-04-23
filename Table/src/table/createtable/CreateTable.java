@@ -40,6 +40,7 @@ public class CreateTable {
 
 	public void showTable() {
 		// affiche le tableau
+		//testing commit 
 		mainFrame.pack();
 	}
 
