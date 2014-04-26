@@ -1,5 +1,6 @@
 testingtable
 ============
-Creator : Pascal
-Creation date: 02/03/2014
-Testing Table
+Created : 27 mars 2014
+Done by Pascal Niyitegeka and Yossi Attia
+Project Draw me an idea
+Contains Table
