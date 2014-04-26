@@ -1,11 +1,15 @@
 package table.createtable;
 
 import java.awt.BorderLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
-public class CreateTable {
+import table.cellrender.CustomRenderer;
+
+public class CreateTable implements MouseListener {
 
 	private JFrame mainFrame;
 
@@ -21,7 +25,7 @@ public class CreateTable {
 		this.mainFrame = mainframe;
 		this.rowLength = rowlength;
 		this.columnLength = columnlength;
-		
+
 		int headerLength = columnLength;
 
 		donnees = new String[rowLength][columnLength];
@@ -34,14 +38,54 @@ public class CreateTable {
 			entetes[i] = "";
 
 		tableau = new JTable(donnees, entetes);
+		tableau.setCellSelectionEnabled(true);
 		mainFrame.getContentPane().add(tableau);
 		mainFrame.getContentPane().add(tableau, BorderLayout.CENTER);
+
+		// -- -- -- -- -- -- -- -- Testing Actionlistenners -- -- -- -- -- -- --
+		// -- -- -- -
+
+		tableau.addMouseListener(this);
+
+		// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+		// -- -- -- --
+
 	}
 
 	public void showTable() {
 		// affiche le tableau
-		//testing commit 
 		mainFrame.pack();
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent mouseEvent) {
+		int column = tableau.columnAtPoint(mouseEvent.getPoint());
+		int row = tableau.rowAtPoint(mouseEvent.getPoint());
+		System.out.println(" " + column + " " + row);
+
+		tableau.getColumnModel().getColumn(column)
+				.setCellRenderer(new CustomRenderer(column, row));
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent mouseEvent) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent mouseEvent) {
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent mouseEvent) {
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent mouseEvent) {
+
 	}
 
 }
