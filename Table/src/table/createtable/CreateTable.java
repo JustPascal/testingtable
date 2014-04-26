@@ -1,6 +1,7 @@
 package table.createtable;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -8,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 
 import table.cellrender.CustomRenderer;
+import table.color.bar.Colorbar;
 
 public class CreateTable implements MouseListener {
 
@@ -20,6 +22,8 @@ public class CreateTable implements MouseListener {
 	private Object[][] donnees;
 
 	private JTable tableau;
+
+	private Colorbar colorBar = new Colorbar(mainFrame);
 
 	public CreateTable(JFrame mainframe, int rowlength, int columnlength) {
 		this.mainFrame = mainframe;
@@ -41,6 +45,7 @@ public class CreateTable implements MouseListener {
 		tableau.setCellSelectionEnabled(true);
 		mainFrame.getContentPane().add(tableau);
 		mainFrame.getContentPane().add(tableau, BorderLayout.CENTER);
+		mainFrame.add(colorBar.getColorbar(), BorderLayout.NORTH);
 
 		// -- -- -- -- -- -- -- -- Testing Actionlistenners -- -- -- -- -- -- --
 		// -- -- -- -
@@ -62,9 +67,11 @@ public class CreateTable implements MouseListener {
 		int column = tableau.columnAtPoint(mouseEvent.getPoint());
 		int row = tableau.rowAtPoint(mouseEvent.getPoint());
 		System.out.println(" " + column + " " + row);
-
-		tableau.getColumnModel().getColumn(column)
-				.setCellRenderer(new CustomRenderer(column, row));
+		Color colorToSetInBackground = colorBar.getColorForBackGround();
+		tableau.getColumnModel()
+				.getColumn(column)
+				.setCellRenderer(
+						new CustomRenderer(column, row, colorToSetInBackground));
 
 	}
 

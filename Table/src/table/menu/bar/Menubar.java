@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+
 import table.createtable.CreateTable;
 
 public class Menubar extends JMenuBar implements ActionListener {
@@ -39,6 +40,7 @@ public class Menubar extends JMenuBar implements ActionListener {
 
 		menuBar.add(file);
 		menuBar.add(help);
+
 	}
 
 	public JMenuBar getMenubar() {
@@ -59,6 +61,5 @@ public class Menubar extends JMenuBar implements ActionListener {
 			System.out.println("Exit File");
 
 	}
-
 
 }
