@@ -6,7 +6,7 @@ import table.menu.bar.Menubar;
 
 public class MainFrame extends JFrame {
 
-	private JFrame mainFrame = new JFrame();
+	private JFrame mainFrame = new JFrame(); // this line is to be deleted
 
 	private String frameName = "The Real Thing";
 
@@ -15,6 +15,7 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		mainFrame.setSize(400, 400);
 		mainFrame.setTitle(frameName);
+		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setJMenuBar(menuBar.getMenubar());
 		mainFrame.setVisible(true);
