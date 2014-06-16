@@ -5,7 +5,7 @@ import java.awt.event.WindowListener;
 
 import javax.swing.JOptionPane;
 
-public class Ecouteur implements WindowListener{
+public class MainFrameWindowListener implements WindowListener{
 
 
 	@Override
