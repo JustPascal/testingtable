@@ -21,8 +21,8 @@ public class MainFrame extends JFrame {
 		mainFrame.setVisible(true);
 	}
 
-	public JFrame getMainFrame() {
-		return mainFrame;
-	}
+	//public JFrame getMainFrame() {
+	//	return mainFrame;
+	//}
 
 }
