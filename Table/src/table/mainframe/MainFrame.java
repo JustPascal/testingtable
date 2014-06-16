@@ -1,28 +1,28 @@
 package table.mainframe;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 
+import table.ecouteur.Ecouteur;
 import table.menu.bar.Menubar;
 
 public class MainFrame extends JFrame {
 
-	private JFrame mainFrame = new JFrame(); // this line is to be deleted
-
-	private String frameName = "The Real Thing";
-
-	private Menubar menuBar = new Menubar(mainFrame);
+	private Menubar menuBar = new Menubar(this);
 
 	public MainFrame() {
-		mainFrame.setSize(400, 400);
-		mainFrame.setTitle(frameName);
-		mainFrame.setLocationRelativeTo(null);
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setJMenuBar(menuBar.getMenubar());
-		mainFrame.setVisible(true);
+		setTitle("Draw me an Idea o_O");
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		Dimension d = tk.getScreenSize();
+		setSize(d.width / 2, d.height / 2);
+		Ecouteur ec = new Ecouteur();
+		addWindowListener(ec);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setJMenuBar(menuBar.getMenubar());
+		setVisible(true);
 	}
-
-	//public JFrame getMainFrame() {
-	//	return mainFrame;
-	//}
 
 }
