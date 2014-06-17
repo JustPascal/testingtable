@@ -5,10 +5,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JToolBar;
 
+import table.internalframe.PersonnalInternalFrame;
+
 public class Colorbar extends JToolBar implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private JToolBar colorBar;
 
@@ -26,7 +32,7 @@ public class Colorbar extends JToolBar implements ActionListener {
 
 	private Color color;
 
-	public Colorbar(JFrame mainframe) {
+	public Colorbar(PersonnalInternalFrame internalFrame) {
 		colorBar = new JToolBar();
 
 		// colors
