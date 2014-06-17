@@ -9,10 +9,17 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import table.createtable.CreateTable;
+import table.internalframe.PersonnalInternalFrame;
+import table.mainframe.MainFrame;
 
 public class Menubar extends JMenuBar implements ActionListener {
 
-	private JFrame mainFrame;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private MainFrame mainFrame;
 
 	private JMenuBar menuBar;
 
@@ -26,7 +33,7 @@ public class Menubar extends JMenuBar implements ActionListener {
 
 	private JMenuItem exitFile = new JMenuItem("Exit File");
 
-	public Menubar(JFrame mainframe) {
+	public Menubar(MainFrame mainframe) {
 		this.mainFrame = mainframe;
 		menuBar = new JMenuBar();
 
@@ -52,8 +59,9 @@ public class Menubar extends JMenuBar implements ActionListener {
 
 		if (event.getSource().equals(newFile)) {
 			System.out.println("New File");
-			CreateTable createTable = new CreateTable(mainFrame, 3, 10);
-			createTable.showTable();
+			Thread t = new Thread(new PersonnalInternalFrame(mainFrame));
+			//new CreateTable(mainFrame, 3, 10)
+			t.start();
 		}
 		if (event.getSource().equals(saveFile))
 			System.out.println("Save File");

@@ -5,15 +5,15 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JFrame;
 import javax.swing.JTable;
 
 import table.cellrender.CustomRenderer;
 import table.color.bar.Colorbar;
+import table.internalframe.PersonnalInternalFrame;
 
 public class CreateTable implements MouseListener {
 
-	private JFrame mainFrame;
+	private PersonnalInternalFrame internalFrame;
 
 	private int rowLength;
 
@@ -23,10 +23,10 @@ public class CreateTable implements MouseListener {
 
 	private JTable tableau;
 
-	private Colorbar colorBar = new Colorbar(mainFrame);
+	private Colorbar colorBar = new Colorbar(internalFrame);
 
-	public CreateTable(JFrame mainframe, int rowlength, int columnlength) {
-		this.mainFrame = mainframe;
+	public CreateTable(PersonnalInternalFrame internalFrame, int rowlength, int columnlength) {
+		this.internalFrame = internalFrame;
 		this.rowLength = rowlength;
 		this.columnLength = columnlength;
 
@@ -43,9 +43,9 @@ public class CreateTable implements MouseListener {
 
 		tableau = new JTable(donnees, entetes);
 		tableau.setCellSelectionEnabled(true);
-		mainFrame.getContentPane().add(tableau);
-		mainFrame.getContentPane().add(tableau, BorderLayout.CENTER);
-		mainFrame.add(colorBar.getColorbar(), BorderLayout.NORTH);
+		internalFrame.getContentPane().add(tableau);
+		internalFrame.getContentPane().add(tableau, BorderLayout.CENTER);
+		internalFrame.add(colorBar.getColorbar(), BorderLayout.NORTH);
 
 		// -- -- -- -- -- -- -- -- Testing Actionlistenners -- -- -- -- -- -- --
 		// -- -- -- -
@@ -54,12 +54,7 @@ public class CreateTable implements MouseListener {
 
 		// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 		// -- -- -- --
-
-	}
-
-	public void showTable() {
-		// affiche le tableau
-		mainFrame.pack();
+		internalFrame.pack();
 	}
 
 	@Override
